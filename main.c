@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 int x = 10, y = 20, sum;
 
 //
-// inline assembly sample
+// inline assembly sample: * this code targets MacOSX(64bit)
 //
 void test_inline_asm() {
     __asm__(
