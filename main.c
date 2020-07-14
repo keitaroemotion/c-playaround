@@ -9,16 +9,18 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-int sum;
+int x = 10, y = 20, sum;
 
 //
 // inline assembly sample
 //
 void test_inline_asm() {
     __asm__(
-        "mov $100, %rax;"
-        "add $200, %rax;"
-        "mov %rax, _sum(%rip);"
+        "mov $100,     %rax;"
+        "add $200,     %rax;"
+        "add _x(%rip), %rax;"
+        "add _y(%rip), %rax;"
+        "mov %rax,     _sum(%rip);"
     );
     printf("The sum is %d.\n", sum);
 }
