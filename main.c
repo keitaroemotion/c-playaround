@@ -3,12 +3,14 @@
 void test_assignment_operator();
 void test_inline_asm();
 void test_inline_asm2();
+void test_size_of();
 
 int x = 10, y = 20, sum;
 
 int main(int argc, char *argv[]) {
     test_assignment_operator();
     test_inline_asm();
+    test_size_of();
     return 0;
 }
 
@@ -49,4 +51,10 @@ void test_assignment_operator() {
     v2 |= 5;            // 0101 
                         // ----
     printf("%d\n", v2); // 1111 = 15 
+}
+
+void test_size_of() {
+   printf("%lu\n", sizeof("people has been changed.")); 
+   double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
+   printf("%lu\n", sizeof(balance)); 
 }
