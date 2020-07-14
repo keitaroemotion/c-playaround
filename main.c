@@ -2,14 +2,15 @@
 
 void test_assignment_operator();
 void test_inline_asm();
+void test_inline_asm2();
+
+int x = 10, y = 20, sum;
 
 int main(int argc, char *argv[]) {
     test_assignment_operator();
     test_inline_asm();
     return 0;
 }
-
-int x = 10, y = 20, sum;
 
 //
 // inline assembly sample: * this code targets MacOSX(64bit)
@@ -23,6 +24,18 @@ void test_inline_asm() {
         "mov %rax,     _sum(%rip);"
     );
     printf("The sum is %d.\n", sum);
+
+    __asm__(
+        "mov  %%rdx, %%rax;"
+        "imul %%rcx, %%rax;"
+        "xor  %%rsi, %%rsi;"
+        "mov  $1,    %%rsi;"
+        "add  %%rsi, %%rax;"
+        :"=a"(sum)
+        :"d"(x), "c"(y)
+        :"rsi"
+    );
+    printf("Another sum is %d.\n", sum);
 }
 
 void test_assignment_operator() {
