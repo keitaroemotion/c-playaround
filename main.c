@@ -1,10 +1,26 @@
 #include <stdio.h>
 
 void test_assignment_operator();
+void test_inline_asm();
 
 int main(int argc, char *argv[]) {
     test_assignment_operator();
+    test_inline_asm();
     return 0;
+}
+
+int sum;
+
+//
+// inline assembly sample
+//
+void test_inline_asm() {
+    __asm__(
+        "mov $100, %rax;"
+        "add $200, %rax;"
+        "mov %rax, _sum(%rip);"
+    );
+    printf("The sum is %d.\n", sum);
 }
 
 void test_assignment_operator() {
