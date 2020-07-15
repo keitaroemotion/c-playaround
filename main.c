@@ -54,7 +54,7 @@ void test_assignment_operator() {
 }
 
 void test_size_of() {
-   printf("%lu\n", sizeof("people has been changed.")); 
+   printf("%lu\n", sizeof("people") / sizeof(char)); 
    double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0};
-   printf("%lu\n", sizeof(balance)); 
+   printf("%lu\n", sizeof(balance) / sizeof(balance[0])); 
 }
