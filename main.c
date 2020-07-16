@@ -15,6 +15,7 @@ int main(int argc, char *argv[]) {
 }
 
 //
+//
 // inline assembly sample: * this code targets MacOSX(64bit)
 //
 void test_inline_asm() {
